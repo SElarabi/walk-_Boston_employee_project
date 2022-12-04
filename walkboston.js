@@ -6,12 +6,13 @@ function renderPosts(boston, container) {
     html +=
       '<li class="boston">' + '<h2>' + people[i][8] + '</h2>' + '<h3>' + people[i][11] + '</h3>';
     }
-
-     // container.innerHTML = '<ul id = "boston">' + html + '</ul>';
+// TODO: add code to display the html variable inside a ul element with id="data"
+  // Hint: you can use the container parameter's innerHTML property to insert Html tags
+     
+  container.innerHTML = '<ul id = "data">' + html + '</ul>';
   }
 
-  // TODO: add code to display the html variable inside a ul element with id="data"
-  // Hint: you can use the container parameter's innerHTML property to insert Html tags
+  
 
   
    
@@ -54,10 +55,11 @@ function renderPosts(boston, container) {
   
     container.innerHTML += '<ul id = "topEmployees">' + html + '</ul>';
   }
-  
-  renderTopSalaries(boston, document.getElementById('container')); //step 1 solution
- //renderTopEmployees(boston, document.getElementById('container')); //step 2 solution
-  
 
-
-  //renderPosts(boston, document.getElementById('container'));
+  //step 1 solution
+  renderTopSalaries(boston, document.getElementById('container')); 
+  
+  // step 2 solution
+  renderTopEmployees(boston, document.getElementById('container')); 
+  
+  renderPosts(boston, document.getElementById('container'));
