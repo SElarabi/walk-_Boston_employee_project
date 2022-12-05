@@ -1,10 +1,7 @@
 
  let c = 5;
  
- var img = document.createElement("img");
- img.src = "./boston.png";
- document.getElementById("header").appendChild(img);
- 
+
 
 function renderHighSalaries(boston, container){
   
