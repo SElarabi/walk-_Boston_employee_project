@@ -1,7 +1,11 @@
 
  let c = 5;
  
+ var img = document.createElement("img");
+ img.src = "./boston.png";
+ document.getElementById("header").appendChild(img);
  
+
 function renderHighSalaries(boston, container){
   
   var people = boston.data;
@@ -71,5 +75,5 @@ function getLowValue(){
  
 }
    
-//renderHighSalaries(boston, document.getElementById('container')); 
+renderHighSalaries(boston, document.getElementById('container')); 
 
