@@ -1,22 +1,21 @@
 
- let c = 5;
+let capUserInput = 5;
  
- var img = document.createElement("img");
- img.src = "./boston.png";
- document.getElementById("header").appendChild(img);
- 
-
-function renderHighSalaries(boston, container){
-  
-  var people = boston.data;
+ const fetch = () => {
+    
+    var people = boston.data;
    
-    people.sort(function(a , b){return b[11] - a [11]});
-  
-  const len = boston.data.length;
-   
-  var html = '';
+    return people.sort(function(a , b){return b[11] - a [11]});
+ };
 
-  for(let i = 0 ; i < c ; i++){
+renderHighSalaries = (boston, container) =>{
+  
+   let people = fetch();
+  
+   var html = '';
+
+   for(let i = 0 ; i < capUserInput ; i++){
+   
     html +=
     
     '<li class="post">' + '<h4>' + people[i][8] + '</h4>' + '<h4>' + '$'+people[i][11] + '</h4>' + people[i][10] + '</h4>' + '<h4>' ;
@@ -26,20 +25,16 @@ function renderHighSalaries(boston, container){
   
 } 
  
-function renderLowSalaries(boston, container){
+renderLowSalaries = (boston, container) =>{
   
-  var people = boston.data;
-   
-    people.sort(function(a , b){return b[11] - a [11]});
+    let people = fetch();
   
-  const len = boston.data.length - 1;
-  
+    const len = fetch().length - 1;
 
-  console.log('len ==> ' + len);
-  console.log('c ==> ' + c);
-   
-  var html = '';
-  for(let i = 0 ; i < c ; i++){
+    var html = '';
+  
+    for(let i = 0 ; i < capUserInput ; i++){
+    
     html +=
     
     '<li class="post">' + '<h4>' + people[(len - i)][8] + '</h4>' + '<h4>' + '$'+people[(len - i)][11] + '</h4>' + people[(len - i)][10] + '</h4>' + '<h4>' ;
@@ -49,31 +44,28 @@ function renderLowSalaries(boston, container){
   
 } 
 
-function getHighValue(){
+getInputValue = () => {
   
   let val = document.getElementById('userInput').value;
   
   const v1 = parseInt(val, 10);
   
-  c = v1;
+  capUserInput = v1;
    
-  renderHighSalaries(boston, document.getElementById('container'));
  
 }
- 
-function getLowValue(){
-  
-  let val = document.getElementById('userInput').value;
-  
-  const v1 = parseInt(val, 10);
-  
-  c = v1;
 
-  
-   
-  renderLowSalaries(boston, document.getElementById('container'));
- 
+showHighSalies = () => {
+  getInputValue();
+  renderHighSalaries(boston, document.getElementById('container'));
 }
+ 
+showLowSalaries = () =>{
+  getInputValue();
+  renderLowSalaries(boston, document.getElementById('container'));
+}
+
+
    
 renderHighSalaries(boston, document.getElementById('container')); 
 
