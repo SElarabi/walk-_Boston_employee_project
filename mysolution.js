@@ -1,4 +1,8 @@
-function renderTopSalaries(boston, container) {
+
+ let c = 5;
+ 
+ 
+function renderSalaries(boston, container){
   
   var people = boston.data;
    
@@ -8,12 +12,29 @@ function renderTopSalaries(boston, container) {
    
   var html = '';
 
-  for(let i = 0 ; i < len ; i++){
+  for(let i = 0 ; i < c ; i++){
     html +=
-    '<li class="post">' + '<h4>' + people[i][8] + '</h4>' + '<h4>' + people[i][11] + '</h4>';
+    
+    '<li class="post">' + '<h4>' + people[i][8] + '</h4>' + '<h4>' + '$'+people[i][11] + '</h4>' + people[i][10] + '</h4>' + '<h4>' ;
   }
   
-  container.innerHTML = '<ul id = "data">' + html + '</ul>';
-}
+  container.innerHTML = '<ol id = "data">' + html + '</ol>';
+  
+} 
+    
 
-renderTopSalaries(boston, document.getElementById('container')); 
+function getValue(){
+  
+  let val = document.getElementById('userInput').value;
+  
+  const v1 = parseInt(val, 10);
+  
+  c = v1;
+   
+  renderSalaries(boston, document.getElementById('container'));
+ 
+}
+ 
+   
+renderSalaries(boston, document.getElementById('container')); 
+
